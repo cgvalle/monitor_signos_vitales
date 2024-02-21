@@ -7,8 +7,6 @@ import string
 from datetime import datetime
 import serial.tools.list_ports
 
-developing = False
-
 
 
 def random_hash(length=6):
@@ -16,18 +14,16 @@ def random_hash(length=6):
     return ''.join(random.choice(pool) for i in range(length))
 
 
-# Marcadores por defecto. Se pueden modificar en el archivo markers.json
-with open('markers.json', 'r') as f:
+# Marcadores por defecto. Se pueden modificar en el archivo config.json
+with open('config.json', 'r') as f:
     marcadores_config = json.load(f)
 
 # Cambiar keys a minisculas
 marcadores_config = {key.lower(): value for key, value in marcadores_config.items()}
 
-
 # Tema de la interfaz
 sg.theme("DarkBlue3")
 sg.set_options(font=("Courier New", 20, 'bold'))
-
 
 # Marcadores en botonera
 marcadores = []
@@ -48,7 +44,6 @@ layout = [
      sg.Button("Conectar a BIS", size=(15, 1), key='connect')],
     marcadores,
 ]
-
 window = sg.Window('Marcadores para BIS y Carescape B650', layout, use_default_focus=True, finalize=True)
 
 
@@ -70,7 +65,8 @@ while True:
             continue
         try:
             # Valores de acuerdo al manual de BIS
-            ser = serial.Serial(values['puertos'][0].split(' ')[0].strip(), 
+            nombre_puerto = values['puertos'][0].split(' ')[0].strip()
+            ser = serial.Serial(nombre_puerto, 
                                 baudrate = 9600,
                                 parity=serial.PARITY_NONE,
                                 stopbits=serial.STOPBITS_ONE,
@@ -90,7 +86,7 @@ while True:
         ser.write(command)
 
         # Guardar marcadores con su respectivo tiempo
-        with open("marcadores.txt", "a") as f:
+        with open("output.txt", "a") as f:
             line = f"{datetime.now()}--{text}"
             f.write(line+"\n")
             print(line)
