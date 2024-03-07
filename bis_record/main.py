@@ -65,7 +65,7 @@ while True:
             continue
         try:
             # Valores de acuerdo al manual de BIS
-            nombre_puerto = values['puertos'][0].split(' ')[0].strip()
+            nombre_puerto = values['puertos'][0].device.split(' ')[0].strip()
             ser = serial.Serial(nombre_puerto, 
                                 baudrate = 9600,
                                 parity=serial.PARITY_NONE,
