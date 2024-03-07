@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1709736949 "/home/carlos/Documents/Github/monitor_signos_vitales/manual/manual_general.tex" "manual_general.pdf" "manual_general" 1709736950
+["pdflatex"] 1709837128 "/home/carlos/Documents/Github/monitor_signos_vitales/manual/manual_general.tex" "manual_general.pdf" "manual_general" 1709837129
   "/etc/texmf/web2c/texmf.cnf" 1708970230 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/carlos/Documents/Github/monitor_signos_vitales/manual/manual_general.tex" 1709736948 8477 1421735e411ffa1acf5547a476b06571 ""
+  "/home/carlos/Documents/Github/monitor_signos_vitales/manual/manual_general.tex" 1709837128 11315 0907dd36cd0d0fd49a81109654299b79 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -89,15 +89,16 @@
   "img/b650_rear_panel.png" 1709670483 84311 ee505131d8d5fe3313a23c0083f12af2 ""
   "img/bis_rear_panel.png" 1709669930 577838 65a219f72b7610fdaf43879eaf5ecea3 ""
   "img/bis_vista.png" 1709733947 18120 00b0d0f0fa9d59f55ae6d67b2bb7e85f ""
+  "img/canal.png" 1709835863 73813 9156df5763850ff748fc7a6bf4105d67 ""
   "img/carescape_b650.jpeg" 1709669930 2676269 5e4cdf39567dddbcd5e760eeac5e1d59 ""
   "img/network.png" 1709671115 150870 afb5be46fadd60f9e3da10ce63257d37 ""
   "img/network_id.jpeg" 1709671792 194463 8774240f6c2b9fc9e0c0fa3d8245032f ""
   "img/rs232_hembra_hembra.jpeg" 1709669930 228166 8c3998260791b658ab165507da60a627 ""
   "img/rs232_macho_a_usb.jpeg" 1709669930 194836 f22cdc7aa05f0f648232cbcb4ec38c39 ""
   "img/vs_capture.png" 1709733768 123416 2d45d82af5ff98f941231275b0553a88 ""
-  "manual_general.aux" 1709736950 3495 331cd7abbba4b0e0f5e5463ad94881f4 "pdflatex"
-  "manual_general.out" 1709736950 931 aab9a208acb471232c7642c043f2c1d3 "pdflatex"
-  "manual_general.tex" 1709736948 8477 1421735e411ffa1acf5547a476b06571 ""
+  "manual_general.aux" 1709837129 4172 924a94000aa0fcf7e869504c42fc3856 "pdflatex"
+  "manual_general.out" 1709837129 1295 36ceda1a90b21a1df7b57c4a67bd07a4 "pdflatex"
+  "manual_general.tex" 1709837128 11315 0907dd36cd0d0fd49a81109654299b79 ""
   (generated)
   "manual_general.aux"
   "manual_general.log"

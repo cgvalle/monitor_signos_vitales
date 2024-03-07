@@ -22,11 +22,12 @@
 
 \section{Motivación}
 
-El objetivo de este instructivo es guiar en el setup de equipos y software para la extración de datos del monitor de signos vitales \href{https://www.gehealthcare.com/products/patient-monitoring/patient-monitors/carescape-monitor-b650}{Carescape B650} y el monitor \href{https://www.medtronic.com/covidien/es-cl/products/brain-monitoring/bis-complete-4-channel-monitor.html}{Bis vista}.
+El objetivo de este manual es orientar en la configuración de equipos y software necesarios para la extracción de datos de dos dispositivos: el monitor de signos vitales \href{https://www.gehealthcare.com/products/patient-monitoring/patient-monitors/carescape-monitor-b650}{Carescape B650} y el monitor \href{https://www.medtronic.com/covidien/es-cl/products/brain-monitoring/bis-complete-4-channel-monitor.html}{Bis vista}.
 
-Los procedimientos para obtener los datos de ambos equipos son independientes por lo que se abordaran en dos secciones independientes, pero se recomienda realizarlo uno a la vez. En cada sección se describirá el setup, así como el uso del software necesario. 
+Dado que los procesos para recolectar datos de cada equipo son independientes, se dividirán en dos secciones separadas dentro de este documento. A pesar de esta independencia, se aconseja enfocarse en un dispositivo a la vez para una mayor eficacia. En cada sección, se detallará tanto la configuración inicial como el manejo del software correspondiente.
 
-Los códigos y archivos necesarios se encuentran alojados en la carpeta de GitHub: \url{https://github.com/cgvalle/monitor_signos_vitales} 
+Para acceder a los códigos y archivos necesarios para este procedimiento, visite la carpeta de GitHub en el siguiente enlace: \url{https://github.com/cgvalle/monitor_signos_vitales}.
+
 
 
 
@@ -117,7 +118,7 @@ Clonar el repositorio de Github: \url{https://github.com/cgvalle/monitor_signos_
 	\item \textbf{README.md}: Instructivo rapido de uso.
 \end{itemize}
 
-Una vez iniciado VSCapture, debera escribir el puerto COM al que esta conectado el monitor. Si solo esta conectado un dispositivo, el puerto COM sera el que se muestra en la lista. Si no, debera buscarlo en el administrador de dispositivos de Windows. Debera selecionar el intervalo de transmision de datos, el cual se recomienda que sea de 1 segundo. Finalmente, se le pedira que indique el tipo de data que quiere capturar entre 5 opciones. Este proceso se encuentra representado en la Fig. \ref{fig:vs_capture}.
+Una vez iniciado VSCapture, deberá ingresar el puerto COM al cual está conectado el monitor. Si solo hay un dispositivo conectado, el puerto COM a utilizar será el que se muestra automáticamente en la lista. En caso contrario, será necesario buscarlo manualmente en el Administrador de Dispositivos de Windows. A continuación, debe seleccionar el intervalo de transmisión de datos, para lo cual se recomienda un valor de 1 segundo. Por último, se le solicitará que elija el tipo de datos que desea capturar, teniendo a su disposición 5 opciones diferentes. Este proceso se ilustra en la Figura \ref{fig:vs_capture}.
 
 
 \begin{figure}[h]
@@ -128,7 +129,33 @@ Una vez iniciado VSCapture, debera escribir el puerto COM al que esta conectado 
 \end{figure}
 
 
+
+Al seleccionar el tipo de datos, es importante asegurarse de que los canales seleccionados sean aquellos que se están utilizando en la cirugía. En particular, las líneas invasivas de presión arterial disponen de múltiples canales; por ello, se recomienda siempre conectarlas al canal 1. Si se conectan al canal 2, no se obtendrán datos con la opción 2 de VSCapture, dado que esta solo captura el canal 1 (INVP1), como se muestra en la Figura \ref{fig:canal}.
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.2]{img/canal.png}
+	\caption{Verificar que se este utilizando el canal correcto. Los puertos pueden variar dependiendo del monitor incluso dentro de la familia B650.}
+	\label{fig:canal}
+\end{figure}
+
+
+
+
 Al finalizar la cirugia, se debe presionar el botón de ESCAPE en la terminal del programa para que se terminar con la adquisición. Este archivo se guardara en la carpeta \textbf{monitor\_record} con el nombre de \textbf{*.csv}.
+
+
+\newpage
+
+\subsection{Resolución de problemas}
+
+\begin{itemize}
+	\item Si el programa se congela o no responde, se recomienda reinicar programa. Verificar que las conexiones esten bien hechas y que el puerto COM seleccionado sea el correcto. Se recomienda utilizar cinta adhesiva para asegurar que los cables no se desconecten.
+	\item Si el monitor no envia datos, verificar que el Network Type este configurado en S/5 y que el Virtual ID sea el correcto.
+	\item Si el monitor no envia datos, verificar que el puerto COM seleccionado sea el correcto.
+	\item Si el monitor no envia datos, verificar que el cable USB a RS232 este conectado al puerto USB inferior derecho del monitor.
+\end{itemize}
 
 
 
@@ -146,7 +173,7 @@ El monitor BIS Vista (Fig. \ref{fig:bis_frontal}) es un monitor de electroencefa
 
 
 \subsection{Preparativos}
-De manera similar al monitor Carescape B650, es necesario configurar la hora (incluyendo segundos) y fecha del monitor para que coincida con la del computador al que se conectará. Es importante que este paso se realice de manera correcta, ya que de lo contrario los datos estaran desfasados.
+De forma similar al monitor Carescape B650, es necesario configurar la hora y la fecha en el monitor a través del botón 'Fecha y hora' en el menú del equipo, para asegurar que coincida con la del computador al cual se conectará. Es crucial realizar este paso correctamente para evitar discrepancias en los datos.
 
 \subsection{Setup}
 
@@ -171,7 +198,8 @@ Se conectan ambos cables en serie, quedando con un extremo USB. El USB del cable
 
 \subsection{Uso}
 
-Luego de conectar el cintillo al paciente y que la señal se estabilice, se debe presionar el botón de exportar datos de manera continua en el monitor. De esta forma se guardaran los datos en el pendrive. 
+Después de conectar el cintillo al paciente y esperar a que la señal se estabilice, se debe presionar el botón 'Exportar datos'. A continuación, seleccione la opción 'Datos Activos' y luego elija 'Iniciar exportación'. De esta manera, los datos se guardarán en el pendrive durante la cirugía, permitiendo luego volver a la pantalla principal del monitor.
+
 
 Clonar el repositorio de Github: \url{https://github.com/cgvalle/monitor_signos_vitales}. En la carpeta \textbf{bis\_record} encontraras dos archivos:
 
@@ -183,9 +211,28 @@ Clonar el repositorio de Github: \url{https://github.com/cgvalle/monitor_signos_
 \end{itemize}
 
 
-Para ejecutar el programa, se debe abrir una terminal en la carpeta \textbf{bis\_record} y ejecutar el comando \textbf{python main.py}. El programa le pedira que presione la tecla que se encuentra en el archivo de configuración. Cada vez que presione la tecla, se guardara un marcador en el archivo \textbf{output.txt} y en el pendrive. Se le dara a elegir el puerto COM al que esta conectado el monitor. Si solo esta conectado un dispositivo, el puerto COM sera el que se muestra en la lista. Si no, debera buscarlo en el administrador de dispositivos de Windows.
 
-Para finalizar la adquisición, se debe cerrar la ventana del programa. 
+Para ejecutar el programa, es necesario abrir una terminal en la carpeta \textbf{bis\_record} y ejecutar el comando \texttt{python main.py}. El programa solicitará que presione la tecla especificada en el archivo de configuración. Cada vez que se presione dicha tecla, se guardará un marcador tanto en el archivo \textbf{output.txt} como en el pendrive. A continuación, se le pedirá que elija el puerto COM al cual está conectado el monitor. Si solo hay un dispositivo conectado, el puerto COM se identificará automáticamente en la lista. De lo contrario, deberá buscarlo manualmente en el Administrador de Dispositivos de Windows.
+
+Para finalizar la adquisición de datos, simplemente cierre la ventana del programa.
+
+
+\subsection{Resolución de problemas}
+
+A continuación, se presentan soluciones a problemas comunes que pueden surgir al intentar ejecutar el programa:
+
+\begin{itemize}
+	\item Si el programa no inicia, asegúrese de haber abierto la carpeta \textbf{bis\_record} en Visual Studio Code y de haber iniciado una terminal en esta misma carpeta.
+	\item Si el programa aún no se ejecuta, verifique que el puerto COM seleccionado corresponda al dispositivo conectado. Puede necesitar confirmar el puerto COM a través del Administrador de Dispositivos de Windows.
+	\item Si persisten los problemas para ejecutar el programa, asegúrese de que la carpeta \textbf{bis\_record} esté configurada como "confiable" ("trust") dentro de Visual Studio Code. Esto se puede ajustar en las configuraciones de seguridad del entorno de desarrollo.
+\end{itemize}
+
+
+
+
+
+
+
 
 
 
