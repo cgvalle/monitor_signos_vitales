@@ -1,2 +1,2 @@
-pysimplegui==4.60.5
+PySimpleGUI4
 pyserial
