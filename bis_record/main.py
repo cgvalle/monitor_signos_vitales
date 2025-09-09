@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import PySimpleGUI4 as sg
 import json
 import serial
 import os; os.system('clear')
